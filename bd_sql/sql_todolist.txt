@@ -1,0 +1,16 @@
+CREATE DATABASE `todo_list`;
+
+USE `todo_list`;
+
+CREATE TABLE `tsk_tasks` (
+	tsk_id INT PRIMARY KEY AUTO_INCREMENT,
+    tsk_name VARCHAR(255) NOT NULL,
+    tsk_description TEXT NOT NULL,
+    tsk_due DATE NOT NULL,
+    tsk_add_date DATETIME NOT NULL,
+    tsk_priority TINYINT NOT NULL
+);
+
+select * from `tsk_tasks` order by tsk_id desc;
+
+-- DROP DATABASE `todo_list`;
