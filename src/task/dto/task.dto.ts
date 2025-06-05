@@ -6,4 +6,5 @@ export type TaskDTO = {
   date: Date;
   priority: number;
   isArchived: boolean;
+  isFinished: boolean;
 };

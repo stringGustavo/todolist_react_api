@@ -211,8 +211,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.7.0
-   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
+   * Prisma Client JS version: 6.9.0
+   * Query Engine version: 81e4af48011447c3cc503a190e86995b66d2a28e
    */
   export type PrismaVersion = {
     client: string
@@ -890,6 +890,8 @@ export namespace Prisma {
     due: Date | null
     date: Date | null
     priority: number | null
+    isArchived: boolean | null
+    isFinished: boolean | null
   }
 
   export type TasksMaxAggregateOutputType = {
@@ -899,6 +901,8 @@ export namespace Prisma {
     due: Date | null
     date: Date | null
     priority: number | null
+    isArchived: boolean | null
+    isFinished: boolean | null
   }
 
   export type TasksCountAggregateOutputType = {
@@ -908,6 +912,8 @@ export namespace Prisma {
     due: number
     date: number
     priority: number
+    isArchived: number
+    isFinished: number
     _all: number
   }
 
@@ -929,6 +935,8 @@ export namespace Prisma {
     due?: true
     date?: true
     priority?: true
+    isArchived?: true
+    isFinished?: true
   }
 
   export type TasksMaxAggregateInputType = {
@@ -938,6 +946,8 @@ export namespace Prisma {
     due?: true
     date?: true
     priority?: true
+    isArchived?: true
+    isFinished?: true
   }
 
   export type TasksCountAggregateInputType = {
@@ -947,6 +957,8 @@ export namespace Prisma {
     due?: true
     date?: true
     priority?: true
+    isArchived?: true
+    isFinished?: true
     _all?: true
   }
 
@@ -1043,6 +1055,8 @@ export namespace Prisma {
     due: Date
     date: Date
     priority: number
+    isArchived: boolean
+    isFinished: boolean
     _count: TasksCountAggregateOutputType | null
     _avg: TasksAvgAggregateOutputType | null
     _sum: TasksSumAggregateOutputType | null
@@ -1071,6 +1085,8 @@ export namespace Prisma {
     due?: boolean
     date?: boolean
     priority?: boolean
+    isArchived?: boolean
+    isFinished?: boolean
   }, ExtArgs["result"]["tasks"]>
 
 
@@ -1082,9 +1098,11 @@ export namespace Prisma {
     due?: boolean
     date?: boolean
     priority?: boolean
+    isArchived?: boolean
+    isFinished?: boolean
   }
 
-  export type tasksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "due" | "date" | "priority", ExtArgs["result"]["tasks"]>
+  export type tasksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "due" | "date" | "priority" | "isArchived" | "isFinished", ExtArgs["result"]["tasks"]>
 
   export type $tasksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tasks"
@@ -1096,6 +1114,8 @@ export namespace Prisma {
       due: Date
       date: Date
       priority: number
+      isArchived: boolean
+      isFinished: boolean
     }, ExtArgs["result"]["tasks"]>
     composites: {}
   }
@@ -1471,6 +1491,8 @@ export namespace Prisma {
     readonly due: FieldRef<"tasks", 'DateTime'>
     readonly date: FieldRef<"tasks", 'DateTime'>
     readonly priority: FieldRef<"tasks", 'Int'>
+    readonly isArchived: FieldRef<"tasks", 'Boolean'>
+    readonly isFinished: FieldRef<"tasks", 'Boolean'>
   }
     
 
@@ -1812,7 +1834,9 @@ export namespace Prisma {
     description: 'description',
     due: 'due',
     date: 'date',
-    priority: 'priority'
+    priority: 'priority',
+    isArchived: 'isArchived',
+    isFinished: 'isFinished'
   };
 
   export type TasksScalarFieldEnum = (typeof TasksScalarFieldEnum)[keyof typeof TasksScalarFieldEnum]
@@ -1861,6 +1885,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1880,6 +1911,8 @@ export namespace Prisma {
     due?: DateTimeFilter<"tasks"> | Date | string
     date?: DateTimeFilter<"tasks"> | Date | string
     priority?: IntFilter<"tasks"> | number
+    isArchived?: BoolFilter<"tasks"> | boolean
+    isFinished?: BoolFilter<"tasks"> | boolean
   }
 
   export type tasksOrderByWithRelationInput = {
@@ -1889,6 +1922,8 @@ export namespace Prisma {
     due?: SortOrder
     date?: SortOrder
     priority?: SortOrder
+    isArchived?: SortOrder
+    isFinished?: SortOrder
     _relevance?: tasksOrderByRelevanceInput
   }
 
@@ -1902,6 +1937,8 @@ export namespace Prisma {
     due?: DateTimeFilter<"tasks"> | Date | string
     date?: DateTimeFilter<"tasks"> | Date | string
     priority?: IntFilter<"tasks"> | number
+    isArchived?: BoolFilter<"tasks"> | boolean
+    isFinished?: BoolFilter<"tasks"> | boolean
   }, "id">
 
   export type tasksOrderByWithAggregationInput = {
@@ -1911,6 +1948,8 @@ export namespace Prisma {
     due?: SortOrder
     date?: SortOrder
     priority?: SortOrder
+    isArchived?: SortOrder
+    isFinished?: SortOrder
     _count?: tasksCountOrderByAggregateInput
     _avg?: tasksAvgOrderByAggregateInput
     _max?: tasksMaxOrderByAggregateInput
@@ -1928,6 +1967,8 @@ export namespace Prisma {
     due?: DateTimeWithAggregatesFilter<"tasks"> | Date | string
     date?: DateTimeWithAggregatesFilter<"tasks"> | Date | string
     priority?: IntWithAggregatesFilter<"tasks"> | number
+    isArchived?: BoolWithAggregatesFilter<"tasks"> | boolean
+    isFinished?: BoolWithAggregatesFilter<"tasks"> | boolean
   }
 
   export type tasksCreateInput = {
@@ -1936,6 +1977,8 @@ export namespace Prisma {
     due: Date | string
     date: Date | string
     priority: number
+    isArchived: boolean
+    isFinished: boolean
   }
 
   export type tasksUncheckedCreateInput = {
@@ -1945,6 +1988,8 @@ export namespace Prisma {
     due: Date | string
     date: Date | string
     priority: number
+    isArchived: boolean
+    isFinished: boolean
   }
 
   export type tasksUpdateInput = {
@@ -1953,6 +1998,8 @@ export namespace Prisma {
     due?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     priority?: IntFieldUpdateOperationsInput | number
+    isArchived?: BoolFieldUpdateOperationsInput | boolean
+    isFinished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type tasksUncheckedUpdateInput = {
@@ -1962,6 +2009,8 @@ export namespace Prisma {
     due?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     priority?: IntFieldUpdateOperationsInput | number
+    isArchived?: BoolFieldUpdateOperationsInput | boolean
+    isFinished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type tasksCreateManyInput = {
@@ -1971,6 +2020,8 @@ export namespace Prisma {
     due: Date | string
     date: Date | string
     priority: number
+    isArchived: boolean
+    isFinished: boolean
   }
 
   export type tasksUpdateManyMutationInput = {
@@ -1979,6 +2030,8 @@ export namespace Prisma {
     due?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     priority?: IntFieldUpdateOperationsInput | number
+    isArchived?: BoolFieldUpdateOperationsInput | boolean
+    isFinished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type tasksUncheckedUpdateManyInput = {
@@ -1988,6 +2041,8 @@ export namespace Prisma {
     due?: DateTimeFieldUpdateOperationsInput | Date | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     priority?: IntFieldUpdateOperationsInput | number
+    isArchived?: BoolFieldUpdateOperationsInput | boolean
+    isFinished?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2027,6 +2082,11 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type tasksOrderByRelevanceInput = {
     fields: tasksOrderByRelevanceFieldEnum | tasksOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -2040,6 +2100,8 @@ export namespace Prisma {
     due?: SortOrder
     date?: SortOrder
     priority?: SortOrder
+    isArchived?: SortOrder
+    isFinished?: SortOrder
   }
 
   export type tasksAvgOrderByAggregateInput = {
@@ -2054,6 +2116,8 @@ export namespace Prisma {
     due?: SortOrder
     date?: SortOrder
     priority?: SortOrder
+    isArchived?: SortOrder
+    isFinished?: SortOrder
   }
 
   export type tasksMinOrderByAggregateInput = {
@@ -2063,6 +2127,8 @@ export namespace Prisma {
     due?: SortOrder
     date?: SortOrder
     priority?: SortOrder
+    isArchived?: SortOrder
+    isFinished?: SortOrder
   }
 
   export type tasksSumOrderByAggregateInput = {
@@ -2118,6 +2184,14 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2132,6 +2206,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2169,6 +2247,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2228,6 +2311,14 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
 
