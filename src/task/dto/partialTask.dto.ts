@@ -4,4 +4,5 @@ export type PartialTaskDTO = {
   due?: Date;
   date?: Date;
   priority?: number;
+  isArchived?: boolean;
 };

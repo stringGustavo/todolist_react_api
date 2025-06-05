@@ -5,4 +5,5 @@ export type TaskDTO = {
   due: Date;
   date: Date;
   priority: number;
+  isArchived: boolean;
 };

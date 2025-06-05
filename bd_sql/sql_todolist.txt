@@ -8,7 +8,9 @@ CREATE TABLE `tsk_tasks` (
     tsk_description TEXT NOT NULL,
     tsk_due DATE NOT NULL,
     tsk_add_date DATETIME NOT NULL,
-    tsk_priority TINYINT NOT NULL
+    tsk_priority TINYINT NOT NULL,
+    tsk_isArchived TINYINT NOT NULL,
+    tsk_isFinished TINYINT NOT NULL
 );
 
 select * from `tsk_tasks` order by tsk_id desc;
