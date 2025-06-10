@@ -15,6 +15,9 @@ export class TaskService {
     return await this.prisma.tasks.findMany({
       orderBy: {
         id: 'desc',
+      },
+      where: {
+        isArchived: false,
       }
     });
   }
