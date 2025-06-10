@@ -18,6 +18,11 @@ export class TaskController {
         return this.taskService.findAll();
     }
 
+    @Get("/loadArchivedTasks")
+    async findAllArchived() {
+        return this.taskService.findAllArchived();
+    }
+
     @Put('/update/:id')
     async updatePartial(@Param('id', ParseIntPipe) id: number, @Body() data: PartialTaskDTO) {
         return this.taskService.updateBy(id, data);
