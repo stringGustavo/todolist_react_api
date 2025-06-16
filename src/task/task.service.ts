@@ -33,6 +33,20 @@ export class TaskService {
     });
   }
 
+  async searchForTasks(search: string) {
+    return await this.prisma.tasks.findMany({
+      where: {
+        isArchived: false,
+        name: {
+          contains: search,
+        },
+      },
+      orderBy: {
+        id: 'desc'
+      }
+    })
+  }
+
   async deleteBy(id: number) {
     return await this.prisma.tasks.delete({
       where: {
