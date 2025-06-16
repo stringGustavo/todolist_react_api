@@ -47,6 +47,20 @@ export class TaskService {
     })
   }
 
+    async searchForArchivedTasks(search: string) {
+    return await this.prisma.tasks.findMany({
+      where: {
+        isArchived: true,
+        name: {
+          contains: search,
+        },
+      },
+      orderBy: {
+        id: 'desc'
+      }
+    })
+  }
+
   async deleteBy(id: number) {
     return await this.prisma.tasks.delete({
       where: {

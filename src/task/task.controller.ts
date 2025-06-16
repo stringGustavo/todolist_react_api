@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, Search } from '@nestjs/common';
 import { TaskDTO } from './dto/task.dto';
 import { TaskService } from './task.service';
 import { PartialTaskDTO } from './dto/partialTask.dto';
@@ -27,6 +27,12 @@ export class TaskController {
     async searchForTasks(@Query('q') search: string) {
         return this.taskService.searchForTasks(search || '');
     }
+
+    @Get('/searchArchivedTasks')
+    async searchForArchivedTasks(@Query('q') search: string) {
+        return this.taskService.searchForArchivedTasks(search || '');
+    }
+
 
     @Put('/update/:id')
     async updatePartial(@Param('id', ParseIntPipe) id: number, @Body() data: PartialTaskDTO) {
